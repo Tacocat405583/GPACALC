@@ -18,6 +18,13 @@ $(document).ready(function() {
         }
     });
 
+    // Array of background images
+    const backgroundImages = [
+        './monkey/Monkey-Main-1280x720.jpg',
+        './monkey/3235.webp'
+    ];
+    let currentImageIndex = 0;
+
     // Clear all form fields
     $('.clear').click(function() {
         if (confirm('Are you sure you want to clear all courses?')) {
@@ -27,6 +34,10 @@ $(document).ready(function() {
             firstRow.find('input[type="number"]').val('3');
             firstRow.find('select').val('');
             $('.gpa-result').hide();
+
+            // Change background image
+            currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+            $('body').css('background-image', `url(${backgroundImages[currentImageIndex]})`);
         }
     });
 
